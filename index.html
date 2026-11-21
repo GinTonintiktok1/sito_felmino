@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Salerno Agritech — Ingegneria del Verde, Cosenza</title>
+<meta name="description" content="Ingegneria del Verde: progettazione, realizzazione e manutenzione di giardini e aree verdi, con la visione dei Living Labs Agritech.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Lora&display=swap">
+<style>
+* { font-family: var(--font-primary), sans-serif !important; }
+code, pre, kbd { font-family: var(--font-mono), monospace !important; }
+
+:root {
+  --color-primary: #A8D5BA;
+  --color-secondary: #F4F1BB;
+  --color-accent: #2E3D49;
+  --color-bg: #F9F9F9;
+  --color-surface: #FFFFFF;
+  --color-text: #1C281E;
+  --color-text-muted: #556658;
+  --font-primary: 'Playfair Display', sans-serif;
+  --font-display: 'Lora', sans-serif;
+  --font-mono: monospace;
+  --radius: 4px;
+  --border: 1px solid #E0E0E0;
+  --spacing-section: 80px;
+  --spacing-inner: 20px;
+  --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --border-radius-card: 8px;
+  --border-radius-btn: 4px;
+  --grid-columns: 12;
+  --layout-max-width: 1200px;
+  --hero-height: 70vh;
+  --transition-speed: 0.3s;
+  --transition-easing: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --color-dark: #2E3D49;
+  --gradient-hero: linear-gradient(135deg, #A8D5BA, #F4F1BB);
+  --blur-glass: rgba(255, 255, 255, 0.8);
+}
+
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--color-bg); color: var(--color-text); font-weight: 400; line-height: 1.7; }
+h1, h2, h3 { margin: 0 0 var(--spacing-inner); font-weight: 800; line-height: 1.1; }
+h1 { font-size: clamp(2.5rem, 6vw, 6rem); letter-spacing: -0.04em; font-weight: 900; }
+h2 { font-size: clamp(1.75rem, 4vw, 3.5rem); letter-spacing: -0.03em; }
+h3 { font-size: clamp(1.1rem, 2.5vw, 1.75rem); font-weight: 700; }
+p { margin: 0 0 var(--spacing-inner); }
+img { max-width: 100%; display: block; }
+.wrap { max-width: var(--layout-max-width); margin: 0 auto; padding: 0 var(--spacing-inner); }
+section { padding: var(--spacing-section) 0; position: relative; }
+.eyebrow { text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem; color: var(--color-text-muted); margin-bottom: var(--spacing-inner); display: block; }
+.dark { background-color: var(--color-dark); color: var(--color-surface); }
+.dark .eyebrow { color: var(--color-primary); }
+
+/* Reveal */
+[data-reveal] { opacity: 0; transform: translateY(24px); transition: opacity var(--transition-speed) var(--transition-easing), transform var(--transition-speed) var(--transition-easing); }
+[data-reveal].visible { opacity: 1; transform: translateY(0); }
+[data-reveal] { animation-delay: calc(var(--i, 0) * 0.12s); transition-delay: calc(var(--i, 0) * 0.12s); }
+
+/* Nav: floating pill */
+nav { position: fixed; top: var(--spacing-inner); left: 50%; transform: translateX(-50%); width: calc(100% - 2 * var(--spacing-inner)); max-width: var(--layout-max-width); z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 10px var(--spacing-inner); border-radius: var(--border-radius-card); background: transparent; backdrop-filter: none; transition: background var(--transition-speed) var(--transition-easing), box-shadow var(--transition-speed) var(--transition-easing), backdrop-filter var(--transition-speed) var(--transition-easing); }
+nav.scrolled { background: var(--color-surface); backdrop-filter: blur(var(--blur-glass)); box-shadow: var(--card-shadow); }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--color-text); font-weight: 700; letter-spacing: -0.02em; }
+.brand img { height: 36px; width: auto; border-radius: var(--radius); }
+nav ul { list-style: none; display: flex; gap: var(--spacing-inner); margin: 0; padding: 0; }
+nav ul a { position: relative; text-decoration: none; color: var(--color-text); font-size: 0.95rem; }
+nav ul a::after { content: ''; position: absolute; left: 0; bottom: -4px; height: 1px; width: 0; background: var(--color-accent); transition: width var(--transition-speed) var(--transition-easing); }
+nav ul a:hover::after { width: 100%; }
+
+/* Buttons */
+.btn { display: inline-block; padding: 14px 28px; background: var(--color-accent); color: var(--color-surface); text-decoration: none; border-radius: var(--border-radius-btn); border: 0; cursor: pointer; transition: transform var(--transition-speed) var(--transition-easing), box-shadow var(--transition-speed) var(--transition-easing); }
+.btn:hover { transform: scale(1.03); box-shadow: var(--card-shadow-hover); }
+.btn.light { background: var(--color-secondary); color: var(--color-accent); }
+.micro { display: block; margin-top: var(--spacing-inner); font-size: 0.9rem; color: var(--color-text-muted); }
+.dark .micro { color: var(--color-primary); }
+
+/* Hero: offset, full-bleed type */
+.hero { min-height: var(--hero-height); height: var(--hero-height); display: flex; align-items: flex-end; padding: var(--spacing-section) 0; background-image: url('https://agritechcenter.it/wp-content/plugins/cookie-law-info/lite/frontend/images/revisit.svg'); background-size: cover; background-position: center; background-color: var(--color-primary); overflow: hidden; }
+.hero::after { content: ''; position: absolute; inset: 0; background: var(--gradient-hero); opacity: 0.55; }
+.hero .wrap { position: relative; z-index: 2; }
+.hero h1 { max-width: 14ch; }
+.hero .sub { max-width: 46ch; font-family: var(--font-display); font-size: 1.15rem; margin-left: auto; margin-right: 0; font-weight: 400; }
+.hero-grid { display: grid; grid-template-columns: repeat(var(--grid-columns), 1fr); gap: var(--spacing-inner); align-items: end; }
+.hero-grid > div:first-child { grid-column: 1 / span 8; }
+.hero-grid > div:last-child { grid-column: 9 / span 4; }
+
+/* Problem */
+.problem .cols { display: grid; grid-template-columns: repeat(var(--grid-columns), 1fr); gap: var(--spacing-inner); }
+.problem .cols > :first-child { grid-column: 1 / span 7; }
+.problem .cols > :last-child { grid-column: 9 / span 4; align-self: end; color: var(--color-primary); font-style: italic; }
+
+/* Solution cards, varied scale */
+.cards { display: grid; grid-template-columns: repeat(var(--grid-columns), 1fr); gap: var(--spacing-inner); align-items: start; }
+.card { background: var(--color-surface); border: var(--border); border-radius: var(--border-radius-card); box-shadow: var(--card-shadow); padding: var(--spacing-inner) calc(var(--spacing-inner) * 1.5); transition: transform var(--transition-speed) var(--transition-easing), box-shadow var(--transition-speed) var(--transition-easing); }
+.card:hover { transform: translateY(-4px); box-shadow: var(--card-shadow-hover); }
+.card:nth-child(1) { grid-column: 1 / span 6; padding-top: calc(var(--spacing-inner) * 2.5); padding-bottom: calc(var(--spacing-inner) * 2.5); }
+.card:nth-child(2) { grid-column: 7 / span 6; margin-top: var(--spacing-section); }
+.card:nth-child(3) { grid-column: 3 / span 6; }
+.card .num { color: var(--color-text-muted); font-size: 0.85rem; letter-spacing: 0.2em; }
+
+/* Proof: 60/40 */
+.proof-grid { display: grid; grid-template-columns: 60fr 40fr; align-items: stretch; }
+.proof-grid img { width: 100%; height: 100%; min-height: 420px; object-fit: cover; }
+.proof-text { padding: var(--spacing-section) var(--spacing-inner); max-width: 520px; }
+.proof-text .wrapin { padding-left: var(--spacing-inner); }
+.reviews { display: grid; grid-template-columns: repeat(var(--grid-columns), 1fr); gap: var(--spacing-inner); margin-top: var(--spacing-section); }
+.review { background: var(--color-surface); border: var(--border); border-radius: var(--border-radius-card); box-shadow: var(--card-shadow); padding: calc(var(--spacing-inner) * 1.5); transition: transform var(--transition-speed) var(--transition-easing), box-shadow var(--transition-speed) var(--transition-easing); }
+.review:hover { transform: translateY(-4px); box-shadow: var(--card-shadow-hover); }
+.review:nth-child(1) { grid-column: 1 / span 5; }
+.review:nth-child(2) { grid-column: 6 / span 4; margin-top: var(--spacing-section); }
+.review:nth-child(3) { grid-column: 8 / span 5; }
+.review blockquote { margin: 0 0 var(--spacing-inner); font-size: 0.98rem; color: var(--color-text); }
+.review cite { font-style: normal; font-weight: 700; display: block; }
+.stars { color: var(--color-accent); letter-spacing: 0.15em; }
+
+/* Objection */
+.objection { text-align: left; }
+.faq { display: grid; grid-template-columns: repeat(var(--grid-columns), 1fr); gap: var(--spacing-inner); }
+.faq .card:nth-child(1) { grid-column: 1 / span 5; margin: 0; padding: var(--spacing-inner) calc(var(--spacing-inner) * 1.5); }
+.faq .card:nth-child(2) { grid-column: 7 / span 6; margin: 0; padding: var(--spacing-inner) calc(var(--spacing-inner) * 1.5); }
+
+/* CTA */
+.cta { text-align: center; }
+.cta h2 { max-width: 18ch; margin-left: auto; margin-right: auto; }
+.cta p { max-width: 52ch; margin-left: auto; margin-right: auto; }
+
+footer { background: var(--color-bg); padding: var(--spacing-section) 0 var(--spacing-inner); }
+.contact { display: grid; grid-template-columns: 35fr 65fr; gap: var(--spacing-section); align-items: start; }
+.map { border-radius: var(--border-radius-card); overflow: hidden; box-shadow: var(--card-shadow); }
+.map iframe { display: block; }
+.copy { margin-top: var(--spacing-section); padding-top: var(--spacing-inner); border-top: var(--border); font-size: 0.85rem; color: var(--color-text-muted); }
+
+@media (max-width: 800px) {
+  nav ul { display: none; }
+  .hero-grid > div, .problem .cols > *, .card, .review, .faq .card { grid-column: 1 / -1 !important; margin-top: 0 !important; }
+  .hero .sub { margin-left: 0; }
+  .proof-grid, .contact { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="brand" href="#top"><img src="https://sitofelmino.vercel.app/" alt="Logo Salerno Agritech"><span>Salerno Agritech</span></a>
+  <ul>
+    <li><a href="#soluzione">Soluzione</a></li>
+    <li><a href="#proof">Testimonianze</a></li>
+    <li><a href="#contatti">Contatti</a></li>
+  </ul>
+</nav>
+
+<header class="hero" id="top" data-reveal>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Ingegneria del Verde · Cosenza</span>
+        <h1>Un futuro in cui tecnologia e natura coesistono.</h1>
+      </div>
+      <div>
+        <p class="sub">Immagina un futuro in cui l'armonia tra uomo e natura non solo esiste, ma fiorisce grazie alla tecnologia.</p>
+        <a class="btn" href="#contatti">Il mio spazio verde, ripensato</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="problem dark" data-reveal>
+  <div class="wrap">
+    <div class="cols">
+      <div data-reveal style="--i: 0">
+        <span class="eyebrow">Il problema</span>
+        <h2>Mantenere e innovare il verde, nel rispetto dell'ambiente, è difficile.</h2>
+        <p>Il desiderio di trasformare ogni spazio verde in un paradiso ecologicamente avanzato convive con la preoccupazione di non avere gli strumenti giusti per farlo.</p>
+      </div>
+      <p data-reveal style="--i: 1">Come influenzare positivamente il territorio della Piana del Sele senza perdere il contatto con le radici e il rispetto per il paesaggio locale?</p>
+    </div>
+  </div>
+</section>
+
+<section id="soluzione" data-reveal>
+  <div class="wrap">
+    <div data-reveal>
+      <span class="eyebrow">La soluzione</span>
+      <h2>Ingegneria del Verde, con la visione dei Living Labs.</h2>
+      <p>La nostra partnership con Agritech e ELIS per Living Labs avanzati: Agritech, Camera di Commercio di Salerno ed ELIS hanno siglato un'intesa per il futuro della Piana del Sele.</p>
+    </div>
+    <div class="cards">
+      <article class="card" data-reveal style="--i: 0">
+        <span class="num">01</span>
+        <h3>Ingegneria del Verde</h3>
+        <p>Una visione tecnica e rigorosa che mette l'ambiente al centro di ogni scelta progettuale.</p>
+      </article>
+      <article class="card" data-reveal style="--i: 1">
+        <span class="num">02</span>
+        <h3>Manutenzione ordinaria e straordinaria</h3>
+        <p>Cura costante delle aree verdi, con attenzione ai dettagli e strategie sostenibili.</p>
+      </article>
+      <article class="card" data-reveal style="--i: 2">
+        <span class="num">03</span>
+        <h3>Progettazione e realizzazione di giardini</h3>
+        <p>Dal disegno alla realizzazione, giardini pensati per vivere in armonia con il paesaggio locale.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="proof" style="padding-bottom: 0;" data-reveal>
+  <div class="proof-grid">
+    <img src="https://agritechcenter.it/wp-content/uploads/2023/03/Selezione-Agritech.jpg" alt="Selezione Agritech" data-reveal>
+    <div class="proof-text" data-reveal style="--i: 1">
+      <span class="eyebrow">Proof</span>
+      <h2>Il supporto di chi costruisce il futuro del territorio.</h2>
+      <p>Progetti completati e il sostegno della Camera di Commercio di Salerno: competenza e passione, verificabili di persona.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="reviews">
+      <div class="review" data-reveal style="--i: 0">
+        <div class="stars">★★★★★</div>
+        <blockquote>"La visita al progetto Agritech Living Labs Diffusi è stata illuminante! La collaborazione tra Agritech, Camera di Commercio di Salerno ed ELIS è tangibile e promette di rivoluzionare l'approccio all'agricoltura nella Piana del Sele. I laboratori sono ben attrezzati e il personale è estremamente competente, pronto a spiegare ogni dettaglio con passione. Un'esperienza educativa e stimolante, altamente raccomandata a chiunque sia interessato all'innovazione nel settore agricolo."</blockquote>
+        <cite>— Giovanni Russo</cite>
+      </div>
+      <div class="review" data-reveal style="--i: 1">
+        <div class="stars">★★★★☆</div>
+        <blockquote>"Ho partecipato all'inaugurazione del progetto Agritech e sono rimasta colpita dalla struttura e dalle idee innovative presentate. La dedizione del team è evidente e l'iniziativa promette bene per lo sviluppo del verde in zona. Avrei preferito una maggiore interazione durante la visita guidata, ma nel complesso è stato un evento molto ben organizzato. Non vedo l'ora di vedere i progressi futuri grazie a questa collaborazione."</blockquote>
+        <cite>— Maria Esposito</cite>
+      </div>
+      <div class="review" data-reveal style="--i: 2">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Un progetto straordinario! Agritech Living Labs Diffusi è un chiaro esempio di come la tecnologia possa integrarsi con l'agricoltura per creare un futuro sostenibile. La varietà di soluzioni ecologiche e tecnologiche presentate è impressionante. Sono particolarmente entusiasta della possibilità che offrono di partecipare attivamente nei loro laboratori. Complimenti a tutti per l'entusiasmo e l'impegno dimostrato."</blockquote>
+        <cite>— Francesco Bianchi</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="objection" data-reveal>
+  <div class="wrap">
+    <div data-reveal>
+      <span class="eyebrow">Dubbi legittimi</span>
+      <h2>Innovare senza perdere le radici.</h2>
+    </div>
+    <div class="faq">
+      <div class="card" data-reveal style="--i: 0">
+        <h3>La tecnologia snaturerà il mio giardino?</h3>
+        <p>No. Ogni progetto parte dal rispetto per il paesaggio locale e dalle radici del territorio.</p>
+      </div>
+      <div class="card" data-reveal style="--i: 1">
+        <h3>Ho bisogno di strumenti che non possiedo?</h3>
+        <p>Ci pensiamo noi: competenza tecnica e attenzione ai dettagli, con una visione chiara per strategie sostenibili.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta dark" data-reveal>
+  <div class="wrap">
+    <span class="eyebrow">Unisciti a noi</span>
+    <h2>Un verde sostenibile e innovativo ti aspetta.</h2>
+    <p>Entra nel futuro del verde intelligente con Salerno Agritech.</p>
+    <a class="btn light" href="#contatti">Scopri il Potenziale del Tuo Spazio Verde</a>
+    <span class="micro">Raccontaci il tuo spazio: ti risponderà una persona del nostro team, senza impegno.</span>
+  </div>
+</section>
+
+<footer id="contatti" data-reveal>
+  <div class="wrap">
+    <div class="contact">
+      <div data-reveal>
+        <span class="eyebrow">Contatti</span>
+        <h3>SALERNO AGRITECH /n INGEGNERIA DEL VERDE</h3>
+        <p>Cosenza, CS</p>
+      </div>
+      <div class="map" data-reveal style="--i: 1">
+        <iframe width="100%" height="400" style="border:0;" loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=SALERNO+AGRITECH+%2Fn+INGEGNERIA+DEL+VERDE+Cosenza%2C+CS&output=embed"></iframe>
+      </div>
+    </div>
+    <div class="copy">© Salerno Agritech — Ingegneria del Verde</div>
+  </div>
+</footer>
+
+<!-- JS_ANIMATIONS -->
+<script>
+(function () {
+  var items = document.querySelectorAll('[data-reveal]');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.15 });
+  items.forEach(function (el) { io.observe(el); });
+
+  var nav = document.querySelector('nav');
+  var hero = document.querySelector('.hero');
+  function onScroll() {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+    hero.style.backgroundPositionY = window.scrollY * 0.4 + 'px';
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+</body>
+</html>

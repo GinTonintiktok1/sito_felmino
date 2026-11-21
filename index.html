@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Salerno Agritech — Ingegneria del Verde, Cosenza</title>
-<meta name="description" content="Ingegneria del Verde: progettazione, realizzazione e manutenzione di giardini e aree verdi, con la visione dei Living Labs Agritech.">
+<meta name="description" content="Ingegneria del Verde: progettazione, realizzazione e manutenzione di giardini e aree verdi, con attenzione al verde urbano.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Lora&display=swap">
 <style>
 * { font-family: var(--font-primary), sans-serif !important; }
 code, pre, kbd { font-family: var(--font-mono), monospace !important; }
 
 :root {
-  --color-primary: #A8D5BA;
-  --color-secondary: #F4F1BB;
-  --color-accent: #2E3D49;
-  --color-bg: #F9F9F9;
-  --color-surface: #FFFFFF;
-  --color-text: #1C281E;
-  --color-text-muted: #556658;
+  --color-primary: #2F6B4C;
+  --color-secondary: #D8D0B8;
+  --color-accent: #1F4D37;
+  --color-bg: #F1F1EA;
+  --color-surface: #FAFAF6;
+  --color-text: #1A2B22;
+  --color-text-muted: #5E6B5F;
   --font-primary: 'Playfair Display', sans-serif;
   --font-display: 'Lora', sans-serif;
   --font-mono: monospace;
@@ -34,9 +34,10 @@ code, pre, kbd { font-family: var(--font-mono), monospace !important; }
   --hero-height: 70vh;
   --transition-speed: 0.3s;
   --transition-easing: cubic-bezier(0.4, 0.0, 0.2, 1);
-  --color-dark: #2E3D49;
-  --gradient-hero: linear-gradient(135deg, #A8D5BA, #F4F1BB);
-  --blur-glass: rgba(255, 255, 255, 0.8);
+  --color-dark: #1F4D37;
+  --gradient-hero: linear-gradient(135deg, #2F6B4C, #8B7A5A);
+  --blur-glass: rgba(250, 250, 246, 0.8);
+  --color-brown: #8B7A5A;
 }
 
 html { scroll-behavior: smooth; }
@@ -62,7 +63,16 @@ section { padding: var(--spacing-section) 0; position: relative; }
 nav { position: fixed; top: var(--spacing-inner); left: 50%; transform: translateX(-50%); width: calc(100% - 2 * var(--spacing-inner)); max-width: var(--layout-max-width); z-index: 50; display: flex; align-items: center; justify-content: space-between; padding: 10px var(--spacing-inner); border-radius: var(--border-radius-card); background: transparent; backdrop-filter: none; transition: background var(--transition-speed) var(--transition-easing), box-shadow var(--transition-speed) var(--transition-easing), backdrop-filter var(--transition-speed) var(--transition-easing); }
 nav.scrolled { background: var(--color-surface); backdrop-filter: blur(var(--blur-glass)); box-shadow: var(--card-shadow); }
 .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--color-text); font-weight: 700; letter-spacing: -0.02em; }
-.brand img { height: 36px; width: auto; border-radius: var(--radius); }
+.brand .mark { height: 56px; width: auto; flex: none; }
+.cta .links { display: flex; gap: var(--spacing-inner); justify-content: center; flex-wrap: wrap; margin-bottom: var(--spacing-inner); }
+.about-pack { display: grid; grid-template-columns: repeat(var(--grid-columns), 1fr); gap: var(--spacing-inner); align-items: center; }
+.about-pack .logo-big { grid-column: 1 / span 4; width: 100%; max-width: 280px; }
+.about-pack .txt { grid-column: 6 / span 7; }
+@media (max-width: 800px) { .about-pack > * { grid-column: 1 / -1 !important; } }
+.hero { color: var(--color-surface); }
+.hero .eyebrow { color: var(--color-secondary); }
+.fulllogo { width: 100%; max-width: 360px; border-radius: var(--border-radius-card); box-shadow: var(--card-shadow); margin-bottom: var(--spacing-inner); }
+.contact a { color: var(--color-primary); }
 nav ul { list-style: none; display: flex; gap: var(--spacing-inner); margin: 0; padding: 0; }
 nav ul a { position: relative; text-decoration: none; color: var(--color-text); font-size: 0.95rem; }
 nav ul a::after { content: ''; position: absolute; left: 0; bottom: -4px; height: 1px; width: 0; background: var(--color-accent); transition: width var(--transition-speed) var(--transition-easing); }
@@ -142,7 +152,7 @@ footer { background: var(--color-bg); padding: var(--spacing-section) 0 var(--sp
 <body>
 
 <nav>
-  <a class="brand" href="#top"><img src="https://sitofelmino.vercel.app/" alt="Logo Salerno Agritech"><span>Salerno Agritech</span></a>
+  <a class="brand" href="#top"><img class="mark" src="logo_senza_bg.png" alt="Logo Salerno Agritech"><span>Salerno Agritech</span></a>
   <ul>
     <li><a href="#soluzione">Soluzione</a></li>
     <li><a href="#proof">Testimonianze</a></li>
@@ -173,7 +183,7 @@ footer { background: var(--color-bg); padding: var(--spacing-section) 0 var(--sp
         <h2>Mantenere e innovare il verde, nel rispetto dell'ambiente, è difficile.</h2>
         <p>Il desiderio di trasformare ogni spazio verde in un paradiso ecologicamente avanzato convive con la preoccupazione di non avere gli strumenti giusti per farlo.</p>
       </div>
-      <p data-reveal style="--i: 1">Come influenzare positivamente il territorio della Piana del Sele senza perdere il contatto con le radici e il rispetto per il paesaggio locale?</p>
+      <p data-reveal style="--i: 1">Come far crescere il verde del nostro territorio calabrese senza perdere il contatto con le radici e il rispetto per il paesaggio locale?</p>
     </div>
   </div>
 </section>
@@ -182,8 +192,8 @@ footer { background: var(--color-bg); padding: var(--spacing-section) 0 var(--sp
   <div class="wrap">
     <div data-reveal>
       <span class="eyebrow">La soluzione</span>
-      <h2>Ingegneria del Verde, con la visione dei Living Labs.</h2>
-      <p>La nostra partnership con Agritech e ELIS per Living Labs avanzati: Agritech, Camera di Commercio di Salerno ed ELIS hanno siglato un'intesa per il futuro della Piana del Sele.</p>
+      <h2>Ingegneria del Verde: innovazione per il verde urbano.</h2>
+      <p>Salerno Agritech unisce rigore tecnico e cura del paesaggio per progettare, realizzare e mantenere spazi verdi sostenibili, da Cosenza.</p>
     </div>
     <div class="cards">
       <article class="card" data-reveal style="--i: 0">
@@ -210,8 +220,8 @@ footer { background: var(--color-bg); padding: var(--spacing-section) 0 var(--sp
     <img src="https://agritechcenter.it/wp-content/uploads/2023/03/Selezione-Agritech.jpg" alt="Selezione Agritech" data-reveal>
     <div class="proof-text" data-reveal style="--i: 1">
       <span class="eyebrow">Proof</span>
-      <h2>Il supporto di chi costruisce il futuro del territorio.</h2>
-      <p>Progetti completati e il sostegno della Camera di Commercio di Salerno: competenza e passione, verificabili di persona.</p>
+      <h2>Competenza e passione, verificabili di persona.</h2>
+      <p>Le parole di chi ha visitato i progetti Agritech.</p>
     </div>
   </div>
   <div class="wrap">
@@ -259,7 +269,10 @@ footer { background: var(--color-bg); padding: var(--spacing-section) 0 var(--sp
     <span class="eyebrow">Unisciti a noi</span>
     <h2>Un verde sostenibile e innovativo ti aspetta.</h2>
     <p>Entra nel futuro del verde intelligente con Salerno Agritech.</p>
-    <a class="btn light" href="#contatti">Scopri il Potenziale del Tuo Spazio Verde</a>
+    <div class="links">
+      <a class="btn light" href="tel:+393466328398">Chiama: +39 346 632 8398</a>
+      <a class="btn light" href="https://instagram.com/salerno_agritech">@salerno_agritech</a>
+    </div>
     <span class="micro">Raccontaci il tuo spazio: ti risponderà una persona del nostro team, senza impegno.</span>
   </div>
 </section>
@@ -269,11 +282,15 @@ footer { background: var(--color-bg); padding: var(--spacing-section) 0 var(--sp
     <div class="contact">
       <div data-reveal>
         <span class="eyebrow">Contatti</span>
-        <h3>SALERNO AGRITECH /n INGEGNERIA DEL VERDE</h3>
-        <p>Cosenza, CS</p>
+        <div class="about-pack" style="display:block">
+          <img class="logo-big" src="logo_senza_bg.png" alt="Logo Salerno Agritech — Ingegneria del Verde">
+        </div>
+        <p><strong>Innovazione per il verde urbano.</strong><br>Sostieni la nostra missione per un futuro più verde. Contattaci per scoprire i nostri pacchetti di sponsorizzazione.</p>
+        <h3>SALERNO AGRITECH<br>INGEGNERIA DEL VERDE</h3>
+        <p>Sede: Cosenza, CS<br>Tel. <a href="tel:+393466328398">+39 346 632 8398</a><br>Instagram <a href="https://instagram.com/salerno_agritech">@salerno_agritech</a></p>
       </div>
       <div class="map" data-reveal style="--i: 1">
-        <iframe width="100%" height="400" style="border:0;" loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=SALERNO+AGRITECH+%2Fn+INGEGNERIA+DEL+VERDE+Cosenza%2C+CS&output=embed"></iframe>
+        <iframe width="100%" height="400" style="border:0;" loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=Salerno+Agritech+Ingegneria+del+Verde+Cosenza&output=embed"></iframe>
       </div>
     </div>
     <div class="copy">© Salerno Agritech — Ingegneria del Verde</div>
@@ -303,3 +320,4 @@ footer { background: var(--color-bg); padding: var(--spacing-section) 0 var(--sp
 </script>
 </body>
 </html>
+

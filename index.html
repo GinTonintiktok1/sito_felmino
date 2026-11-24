@@ -119,7 +119,7 @@ nav ul a:hover::after { width: 100%; }
 
 /* Proof: 60/40 */
 .proof-grid { display: grid; grid-template-columns: 60fr 40fr; align-items: stretch; }
-.proof-grid img { width: 100%; height: 100%; min-height: 420px; object-fit: cover; }
+.proof-grid img { width: 100%; height: 100%; min-height: 420px; object-fit: contain; padding: var(--spacing-section); box-sizing: border-box; background: var(--color-surface); }
 .proof-text { padding: var(--spacing-section) var(--spacing-inner); max-width: 520px; }
 .proof-text .wrapin { padding-left: var(--spacing-inner); }
 .reviews { display: grid; grid-template-columns: repeat(var(--grid-columns), 1fr); gap: var(--spacing-inner); margin-top: var(--spacing-section); }
@@ -226,7 +226,7 @@ footer { background: var(--color-bg); padding: var(--spacing-section) 0 var(--sp
 
 <section id="proof" style="padding-bottom: 0;" data-reveal>
   <div class="proof-grid">
-    <img src="https://agritechcenter.it/wp-content/uploads/2023/03/Selezione-Agritech.jpg" alt="Selezione Agritech" data-reveal>
+    <img class="proof-logo" src="logo_senza_bg.png" alt="Logo Salerno Agritech" data-reveal>
     <div class="proof-text" data-reveal style="--i: 1">
       <span class="eyebrow">Proof</span>
       <h2>Competenza e passione, verificabili di persona.</h2>
@@ -237,7 +237,7 @@ footer { background: var(--color-bg); padding: var(--spacing-section) 0 var(--sp
     <div class="reviews">
       <div class="review" data-reveal style="--i: 0">
         <div class="stars">★★★★★</div>
-        <blockquote>"La visita al progetto Agritech Living Labs Diffusi è stata illuminante! La collaborazione tra Agritech, Camera di Commercio di Salerno ed ELIS è tangibile e promette di rivoluzionare l'approccio all'agricoltura nella Piana del Sele. I laboratori sono ben attrezzati e il personale è estremamente competente, pronto a spiegare ogni dettaglio con passione. Un'esperienza educativa e stimolante, altamente raccomandata a chiunque sia interessato all'innovazione nel settore agricolo."</blockquote>
+        <blockquote>"La visita al progetto Agritech Living Labs Diffusi è stata illuminante! La collaborazione è tangibile e promette di rivoluzionare l'approccio all'agricoltura. I laboratori sono ben attrezzati e il personale è estremamente competente, pronto a spiegare ogni dettaglio con passione. Un'esperienza educativa e stimolante, altamente raccomandata a chiunque sia interessato all'innovazione nel settore agricolo."</blockquote>
         <cite>— Giovanni Russo</cite>
       </div>
       <div class="review" data-reveal style="--i: 1">
@@ -280,7 +280,7 @@ footer { background: var(--color-bg); padding: var(--spacing-section) 0 var(--sp
     <p>Entra nel futuro del verde intelligente con Salerno Agritech.</p>
     <div class="links">
       <a class="btn light" href="tel:+393466328398">Chiama: +39 346 632 8398</a>
-      <a class="btn light ig" href="https://instagram.com/salerno_agritech" aria-label="Instagram @salerno_agritech" title="@salerno_agritech"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg><span class="ig-name">@salerno_agritech</span></a>
+      <a class="btn light ig" href="https://instagram.com/salerno_agritech" aria-label="Instagram salerno_agritech" title="salerno_agritech"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg><span class="ig-name">salerno_agritech</span></a>
     </div>
     <span class="micro">Raccontaci il tuo spazio: ti risponderà una persona del nostro team, senza impegno.</span>
   </div>
@@ -297,7 +297,7 @@ footer { background: var(--color-bg); padding: var(--spacing-section) 0 var(--sp
         <p><strong>Innovazione per il verde urbano.</strong><br>Sostieni la nostra missione per un futuro più verde. Contattaci per scoprire i nostri pacchetti di sponsorizzazione.</p>
         <h3>SALERNO AGRITECH<br>INGEGNERIA DEL VERDE</h3>
         <p>Sede: Cosenza, CS<br>Tel. <a href="tel:+393466328398">+39 346 632 8398</a></p>
-        <a class="ig-icon" href="https://instagram.com/salerno_agritech" aria-label="Instagram @salerno_agritech" title="@salerno_agritech"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg><span class="ig-name">@salerno_agritech</span></a>
+        <a class="ig-icon" href="https://instagram.com/salerno_agritech" aria-label="Instagram salerno_agritech" title="salerno_agritech"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg><span class="ig-name">salerno_agritech</span></a>
       </div>
       <div class="map" data-reveal style="--i: 1">
         <iframe width="100%" height="400" style="border:0;" loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=Salerno+Agritech+Ingegneria+del+Verde+Cosenza&output=embed"></iframe>

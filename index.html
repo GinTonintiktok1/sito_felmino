@@ -155,6 +155,15 @@ footer { background: var(--color-bg); padding: var(--spacing-section) 0 var(--sp
   .hero .sub { margin-left: 0; }
   .proof-grid, .contact { grid-template-columns: 1fr; }
 }
+.works .work { display: grid; grid-template-columns: 60fr 40fr; gap: var(--spacing-inner); align-items: center; margin-top: var(--spacing-section); }
+.works .work.rev { grid-template-columns: 40fr 60fr; }
+.works .work.rev img { order: 2; }
+.works .work img { width: 100%; height: 420px; object-fit: cover; border-radius: var(--border-radius-card); box-shadow: var(--card-shadow); transition: transform var(--transition-speed) var(--transition-easing), box-shadow var(--transition-speed) var(--transition-easing); }
+.works .work img:hover { transform: translateY(-4px); box-shadow: var(--card-shadow-hover); }
+.works .work-text { padding: var(--spacing-inner); }
+.works .num { color: var(--color-text-muted); font-size: 0.85rem; letter-spacing: 0.2em; }
+.maplink { display: inline-block; margin-top: var(--spacing-inner); }
+@media (max-width: 800px) { .works .work, .works .work.rev { grid-template-columns: 1fr; } .works .work.rev img { order: 0; } }
 </style>
 </head>
 <body>
@@ -163,6 +172,7 @@ footer { background: var(--color-bg); padding: var(--spacing-section) 0 var(--sp
   <a class="brand" href="#top"><img class="mark" src="logo_senza_bg.png" alt="Logo Salerno Agritech"><span>Salerno Agritech</span></a>
   <ul>
     <li><a href="#soluzione">Soluzione</a></li>
+    <li><a href="#lavori">Lavori</a></li>
     <li><a href="#proof">Testimonianze</a></li>
     <li><a href="#contatti">Contatti</a></li>
   </ul>
@@ -221,6 +231,47 @@ footer { background: var(--color-bg); padding: var(--spacing-section) 0 var(--sp
         <p>Dal disegno alla realizzazione, giardini pensati per vivere in armonia con il paesaggio locale.</p>
       </article>
     </div>
+  </div>
+</section>
+
+<section id="lavori" class="works" data-reveal>
+  <div class="wrap">
+    <div data-reveal>
+      <span class="eyebrow">I nostri lavori</span>
+      <h2>Dalla siepe al giardino completo.</h2>
+    </div>
+    <article class="work" data-reveal>
+      <img src="assets/potatura.jpeg" alt="Potatura di alberi e siepi" loading="lazy">
+      <div class="work-text"><span class="num">01</span><h3>Potatura di alberi e siepi</h3><p>Il taglio della siepe, fatto con precisione: forme nitide, piante sane e un profilo ordinato per ogni giardino.</p></div>
+    </article>
+    <article class="work rev" data-reveal>
+      <img src="assets/erba.jpeg" alt="Taglio dell'erba e rifiniture" loading="lazy">
+      <div class="work-text"><span class="num">02</span><h3>Taglio dell'erba e rifiniture</h3><p>Prati curati e bordi definiti: la cura dei dettagli che fa la differenza tra uno spazio verde e un giardino.</p></div>
+    </article>
+    <article class="work" data-reveal>
+      <img src="assets/diserbo.jpeg" alt="Pulizia e diserbo" loading="lazy">
+      <div class="work-text"><span class="num">03</span><h3>Pulizia e diserbo</h3><p>Aree ripulite da infestanti e vegetazione indesiderata, per restituire ordine e decoro agli spazi.</p></div>
+    </article>
+    <article class="work rev" data-reveal>
+      <img src="assets/fitosanitari.jpeg" alt="Trattamenti fitosanitari" loading="lazy">
+      <div class="work-text"><span class="num">04</span><h3>Trattamenti fitosanitari</h3><p>Interventi mirati per proteggere piante e alberi, con attenzione alla salute del verde.</p></div>
+    </article>
+    <article class="work" data-reveal>
+      <img src="assets/irrigazione.jpeg" alt="Installazione di impianti di irrigazione" loading="lazy">
+      <div class="work-text"><span class="num">05</span><h3>Installazione di impianti di irrigazione</h3><p>Impianti pensati per dare alle piante l'acqua giusta, riducendo gli sprechi.</p></div>
+    </article>
+    <article class="work rev" data-reveal>
+      <img src="assets/progettazione.jpeg" alt="Progettazione e realizzazione" loading="lazy">
+      <div class="work-text"><span class="num">06</span><h3>Progettazione e realizzazione</h3><p>Dal disegno alla realizzazione: giardini progettati su misura e costruiti in armonia con il paesaggio.</p></div>
+    </article>
+    <article class="work" data-reveal>
+      <img src="assets/rifiuti.jpeg" alt="Smaltimento rifiuti" loading="lazy">
+      <div class="work-text"><span class="num">07</span><h3>Smaltimento rifiuti</h3><p>Raccolta e smaltimento dei residui di lavorazione: a fine lavoro lasciamo tutto pulito.</p></div>
+    </article>
+    <article class="work rev" data-reveal>
+      <img src="assets/passione.jpeg" alt="Passione e dedizione" loading="lazy">
+      <div class="work-text"><span class="num">08</span><h3>Passione e dedizione</h3><p>Dietro ogni intervento c'è un lavoro fatto con cura, giorno dopo giorno.</p></div>
+    </article>
   </div>
 </section>
 
@@ -296,11 +347,11 @@ footer { background: var(--color-bg); padding: var(--spacing-section) 0 var(--sp
         </div>
         <p><strong>Innovazione per il verde urbano.</strong><br>Sostieni la nostra missione per un futuro più verde. Contattaci per scoprire i nostri pacchetti di sponsorizzazione.</p>
         <h3>SALERNO AGRITECH<br>INGEGNERIA DEL VERDE</h3>
-        <p>Sede: Cosenza, CS<br>Tel. <a href="tel:+393466328398">+39 346 632 8398</a></p>
+        <p>Sede: Cosenza, CS<br><a href="https://www.google.com/maps?q=39.449886322021484,16.126527786254883&z=17&hl=it">Apri in Google Maps</a><br>Tel. <a href="tel:+393466328398">+39 346 632 8398</a></p>
         <a class="ig-icon" href="https://instagram.com/salerno_agritech" aria-label="Instagram salerno_agritech" title="salerno_agritech"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg><span class="ig-name">salerno_agritech</span></a>
       </div>
       <div class="map" data-reveal style="--i: 1">
-        <iframe width="100%" height="400" style="border:0;" loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=Salerno+Agritech+Ingegneria+del+Verde+Cosenza&output=embed"></iframe>
+        <iframe width="100%" height="400" style="border:0;" loading="lazy" allowfullscreen src="https://maps.google.com/maps?q=39.449886322021484,16.126527786254883&z=17&hl=it&output=embed"></iframe>
       </div>
     </div>
     <div class="copy">© Salerno Agritech — Ingegneria del Verde</div>

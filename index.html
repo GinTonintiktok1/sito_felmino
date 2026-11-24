@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="icon" type="image/png" href="logo_senza_bg.png">
 <link rel="apple-touch-icon" href="logo_senza_bg.png">
 <title>Salerno Agritech — Ingegneria del Verde, Cosenza</title>
@@ -164,6 +164,25 @@ footer { background: var(--color-bg); padding: var(--spacing-section) 0 var(--sp
 .works .num { color: var(--color-text-muted); font-size: 0.85rem; letter-spacing: 0.2em; }
 .maplink { display: inline-block; margin-top: var(--spacing-inner); }
 @media (max-width: 800px) { .works .work, .works .work.rev { grid-template-columns: 1fr; } .works .work.rev img { order: 0; } }
+@media (max-width: 800px) {
+  :root { --spacing-section: 56px; --hero-height: 80vh; }
+  .hero { height: auto; min-height: 80vh; min-height: 80svh; align-items: flex-end; padding-top: 120px; }
+  .hero-grid > div:last-child { margin-top: var(--spacing-inner); }
+  .hero .sub { max-width: none; }
+  .works .work img { height: auto; aspect-ratio: 4 / 3; }
+  .proof-grid img { min-height: 0; padding: var(--spacing-inner); }
+  .proof-text { max-width: none; padding: var(--spacing-section) var(--spacing-inner) 0; }
+  nav { padding: 6px var(--spacing-inner); }
+  .brand span { font-size: 0.95rem; }
+  .brand .mark { height: 44px; }
+  .btn { padding: 14px 20px; }
+  .cta .links { flex-direction: column; align-items: stretch; }
+  .cta .btn { text-align: center; }
+  .map iframe { height: 300px; }
+  .contact { gap: var(--spacing-inner); }
+}
+@media (prefers-reduced-motion: reduce) { .hero-video { display: none; } [data-reveal] { transition: none; } }
+html { -webkit-text-size-adjust: 100%; }
 </style>
 </head>
 <body>
@@ -367,7 +386,15 @@ footer { background: var(--color-bg); padding: var(--spacing-section) 0 var(--sp
       if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
     });
   }, { threshold: 0.15 });
-  items.forEach(function (el) { io.observe(el); });
+  var ioTall = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); ioTall.unobserve(e.target); }
+    });
+  }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+  items.forEach(function (el) {
+    // elementi molto alti (es. galleria su telefono) non raggiungerebbero mai il 15% visibile
+    if (el.offsetHeight * 0.15 > window.innerHeight * 0.9) { ioTall.observe(el); } else { io.observe(el); }
+  });
 
   var nav = document.querySelector('nav');
   var hero = document.querySelector('.hero');
